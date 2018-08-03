@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    @IBOutlet private var buttonOne: ButtonOne!
     @IBOutlet private var buttonTwo: UIButton!
     @IBOutlet private var buttonThree: ButtonThree!
     @IBOutlet private var buttonFour: ButtonFour!
+    @IBOutlet private var buttonFive: ButtonFive!
     
     private var isRounded: Bool = false
     private let duration: TimeInterval = 0.8
@@ -19,48 +21,71 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureButtonOne()
         configureButtonTwo()
         configureButtonThree()
+        configureButtonFive()
     }
-
-    @IBAction func buttonOneDidSelect(_ sender: UIButton) {
+    
+    // MARK: - Button One
+    
+    @IBAction private func buttonOneDidSelect(_ sender: ButtonOne) {
         print("one")
     }
     
-    @IBAction func buttonThreeDidSelect(_ sender: ButtonThree) {
-        UIView.animate(withDuration: shortInterval, animations: { [weak self] in
-            guard let `self` = self else { return }
+    private func configureButtonOne() {
+        buttonOne.set(name: "First Button")
+    }
+    
+    // MARK: - Button Two
+    
+    private func configureButtonTwo() {
+        buttonTwo.setAttributedTitle(setupAttributedTitle(), for: .normal)
+    }
+    
+    // MARK: - Button Three
+    
+    @IBAction private func buttonThreeDidSelect(_ sender: ButtonThree) {
+        UIView.animate(withDuration: shortInterval, animations: {
             self.buttonThree.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        }) { (_) in
-            UIView.animate(withDuration: self.shortInterval, animations: { [weak self] in
-                guard let `self` = self else { return }
+        }) { _ in
+            UIView.animate(withDuration: self.shortInterval, animations: {
                 self.buttonThree.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
         }
-    }
-    
-    @IBAction func buttonFourDidSelect(_ sender: ButtonFour) {
-        UIView.animate(withDuration: duration) { [weak self] in
-            guard let `self` = self else { return }
-            self.hasRoundCorners(self.isRounded)
-            self.isRounded.toggle()
-        }
-    }
-    
-    private func configureButtonTwo() {
-        buttonTwo.setAttributedTitle(getAttributedTitle(), for: .normal)
     }
     
     private func configureButtonThree() {
         buttonThree.set()
     }
     
-    private func hasRoundCorners(_ isRounded: Bool) {
+    // MARK: - Button Four
+    
+    @IBAction private func buttonFourDidSelect(_ sender: ButtonFour) {
+        UIView.animate(withDuration: duration) {
+            self.setupRoundCorners(self.isRounded)
+            self.isRounded.toggle()
+        }
+    }
+    
+    // MARK: - Button Five
+    
+    @IBAction private func buttonFiveDidSelect(_ sender: ButtonFive) {
+        print("five")
+    }
+    
+    private func configureButtonFive() {
+        buttonFive.set(name: "Five")
+    }
+    
+    // MARK: - Helpers
+    
+    private func setupRoundCorners(_ isRounded: Bool) {
         buttonFour.layer.cornerRadius = isRounded ? 0.0 : buttonFour.bounds.height / 2
         buttonFour.layer.masksToBounds = true
     }
     
-    private func getAttributedTitle() -> NSAttributedString {
+    private func setupAttributedTitle() -> NSAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Arial", size: 64.0)!,
                                                          .foregroundColor: UIColor.purple]
         
@@ -76,4 +101,3 @@ class ViewController: UIViewController {
         return attributedString
     }
 }
-

@@ -14,6 +14,9 @@
 		DA356B5C210F974D0076D953 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA356B5A210F974D0076D953 /* LaunchScreen.storyboard */; };
 		DA4058C92110604300A4AA08 /* ButtonThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4058C82110604300A4AA08 /* ButtonThree.swift */; };
 		DA4058CD2111C0A900A4AA08 /* ButtonFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4058CC2111C0A900A4AA08 /* ButtonFour.swift */; };
+		DA937A8E21136303006C6779 /* ButtonOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA937A8D21136303006C6779 /* ButtonOne.swift */; };
+		DA937A9121138437006C6779 /* ButtonFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA937A9021138437006C6779 /* ButtonFive.swift */; };
+		DA937A9321138448006C6779 /* ButtonFive.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA937A9221138448006C6779 /* ButtonFive.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		DA356B5D210F974D0076D953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4058C82110604300A4AA08 /* ButtonThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonThree.swift; sourceTree = "<group>"; };
 		DA4058CC2111C0A900A4AA08 /* ButtonFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFour.swift; sourceTree = "<group>"; };
+		DA937A8D21136303006C6779 /* ButtonOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOne.swift; sourceTree = "<group>"; };
+		DA937A9021138437006C6779 /* ButtonFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFive.swift; sourceTree = "<group>"; };
+		DA937A9221138448006C6779 /* ButtonFive.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonFive.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +92,23 @@
 		DA4058D02111C10400A4AA08 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				DA4058CE2111C0DB00A4AA08 /* Storyboard */,
 				DA356B53210F97440076D953 /* ViewController.swift */,
-				DA4058C82110604300A4AA08 /* ButtonThree.swift */,
-				DA4058CC2111C0A900A4AA08 /* ButtonFour.swift */,
+				DA4058CE2111C0DB00A4AA08 /* Storyboard */,
+				DA937A8F2113630D006C6779 /* Views */,
 			);
 			path = Code;
+			sourceTree = "<group>";
+		};
+		DA937A8F2113630D006C6779 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA937A8D21136303006C6779 /* ButtonOne.swift */,
+				DA4058C82110604300A4AA08 /* ButtonThree.swift */,
+				DA4058CC2111C0A900A4AA08 /* ButtonFour.swift */,
+				DA937A9021138437006C6779 /* ButtonFive.swift */,
+				DA937A9221138448006C6779 /* ButtonFive.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA356B5C210F974D0076D953 /* LaunchScreen.storyboard in Resources */,
+				DA937A9321138448006C6779 /* ButtonFive.xib in Resources */,
 				DA356B59210F974D0076D953 /* Assets.xcassets in Resources */,
 				DA356B57210F97440076D953 /* Main.storyboard in Resources */,
 			);
@@ -166,7 +184,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA356B54210F97440076D953 /* ViewController.swift in Sources */,
+				DA937A9121138437006C6779 /* ButtonFive.swift in Sources */,
 				DA4058C92110604300A4AA08 /* ButtonThree.swift in Sources */,
+				DA937A8E21136303006C6779 /* ButtonOne.swift in Sources */,
 				DA356B52210F97440076D953 /* AppDelegate.swift in Sources */,
 				DA4058CD2111C0A900A4AA08 /* ButtonFour.swift in Sources */,
 			);

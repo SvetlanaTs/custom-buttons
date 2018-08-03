@@ -18,7 +18,7 @@ final class ButtonFour: UIButton {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         backgroundColor = .green
     }
@@ -40,7 +40,5 @@ final class ButtonFour: UIButton {
         let centerCirclePath = UIBezierPath(ovalIn: centerCircleRect)
         UIColor.white.set()
         centerCirclePath.fill()
-        
-        
     }
 }

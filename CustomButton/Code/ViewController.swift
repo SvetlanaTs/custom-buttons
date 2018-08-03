@@ -23,7 +23,6 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         configureButtonOne()
         configureButtonTwo()
-        configureButtonThree()
         configureButtonFive()
     }
     
@@ -53,10 +52,6 @@ final class ViewController: UIViewController {
                 self.buttonThree.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
         }
-    }
-    
-    private func configureButtonThree() {
-        buttonThree.set()
     }
     
     // MARK: - Button Four

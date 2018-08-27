@@ -9,13 +9,8 @@
 import UIKit
 
 final class ButtonFour: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setup()
     }
 
@@ -24,8 +19,6 @@ final class ButtonFour: UIButton {
     }
     
     override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
         let width: CGFloat = rect.width / 4
         let height: CGFloat = width
         let x: CGFloat = rect.midX - height / 2

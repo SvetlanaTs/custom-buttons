@@ -12,37 +12,30 @@ final class ButtonOne: UIButton {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var iconImageView: UIImageView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
+    private let borderLayer: CAShapeLayer = CAShapeLayer()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupOutlets()
+        setup()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        borderLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 12.0).cgPath
+        borderLayer.frame = bounds
     }
 
     private func setup() {
-        let borderLayer: CAShapeLayer = CAShapeLayer()
+        nameLabel.textColor = .red
+        iconImageView.image = UIImage(named: "desp")
+        
         borderLayer.strokeColor = UIColor.purple.cgColor
         borderLayer.fillColor = UIColor.clear.cgColor
         borderLayer.lineDashPattern = [8, 5]
-        borderLayer.frame = bounds
-        borderLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 12.0).cgPath
         layer.addSublayer(borderLayer)
-    }
-    
-    private func setupOutlets() {
-        nameLabel.textColor = .red
     }
 
     func set(name: String) {
         nameLabel.text = name
-        iconImageView.image = UIImage(named: "desp")
     }
 }

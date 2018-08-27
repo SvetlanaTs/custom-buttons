@@ -9,27 +9,20 @@
 import UIKit
 
 final class ButtonThree: UIControl {
-    @IBOutlet var iconImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    @IBOutlet private var iconImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setup()
     }
 
     private func setup() {
         backgroundColor = .orange
+        nameLabel.text = "Three"
+        iconImageView.image = UIImage(named: "desp")
+        
         layer.cornerRadius = 16.0
         layer.masksToBounds = true
-    }
-
-    func set() {
-        iconImageView.image = UIImage(named: "desp")
-        nameLabel.text = "Three"
     }
 }

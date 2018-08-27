@@ -14,16 +14,10 @@ final class ButtonFive: UIButton {
     @IBOutlet private var contentView: UIView!
     
     private var gradientLayer: CAGradientLayer = CAGradientLayer()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        applyGradient()
-    }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadNib()
-        applyGradient()
     }
     
     override func awakeFromNib() {
@@ -39,11 +33,13 @@ final class ButtonFive: UIButton {
     private func loadNib() {
         Bundle.main.loadNibNamed("ButtonFive", owner: self, options: nil)
         contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
     }
-    
-    private func applyGradient() {
+
+    private func setup() {
+        nameLabel.textColor = .blue
+        iconImageView.image = UIImage(named: "desp")
+        
         gradientLayer.colors = [UIColor.yellow.cgColor,
                                 UIColor.red.cgColor]
         gradientLayer.locations = [0.0, 0.75]
@@ -52,12 +48,7 @@ final class ButtonFive: UIButton {
         contentView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    private func setup() {
-        nameLabel.textColor = .blue
-    }
-    
     func set(name: String) {
         nameLabel.text = name
-        iconImageView.image = UIImage(named: "desp")
     }
 }
